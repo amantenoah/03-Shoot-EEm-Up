@@ -6,13 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://d2oiuisdlb85b" path="res://Assets/backgrounds/Foozle_2DS0015_Void_EnvironmentPack/Backgrounds/PNGs/Condesed/Starry background  - Layer 03 - Stars.png" id="4_mj2jn"]
 [ext_resource type="Script" uid="uid://bdgnddmxbvgev" path="res://player.gd" id="5_kdryc"]
 [ext_resource type="Texture2D" uid="uid://caaa6elfh0eqe" path="res://Assets/Sprites/Main Ship - Base - Full health.png" id="5_mj2jn"]
-[ext_resource type="Script" uid="uid://b4kuyjup8gmgo" path="res://bullet.gd" id="7_e35lh"]
-[ext_resource type="Texture2D" uid="uid://cas0b0y38s6au" path="res://Assets/Sprites/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapon Effects - Projectiles/PNGs/Nautolan - Bullet.png" id="8_udeyl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kdryc"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_miq82"]
-size = Vector2(6, 12)
 
 [node name="Game_Scene" type="Node2D" unique_id=422600435]
 texture_filter = 1
@@ -49,23 +44,5 @@ texture = ExtResource("5_mj2jn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1308489159]
 shape = SubResource("CapsuleShape2D_kdryc")
 
-[node name="Bullet" type="Area2D" parent="." unique_id=356839072]
-position = Vector2(59, 284)
-script = ExtResource("7_e35lh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Bullet" unique_id=1419217818]
-position = Vector2(1, -26)
-texture = ExtResource("8_udeyl")
-region_enabled = true
-region_rect = Rect2(0, 0, 9, 12)
-
-[node name="DestroyTimer" type="Timer" parent="Bullet" unique_id=646514522]
-wait_time = 2.0
-autostart = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet" unique_id=1855748582]
-position = Vector2(1, -25)
-shape = SubResource("RectangleShape2D_miq82")
-
-[connection signal="body_entered" from="Bullet" to="Bullet" method="_on_body_entered"]
-[connection signal="timeout" from="Bullet/DestroyTimer" to="Bullet" method="_on_destroy_timer_timeout"]
+[node name="Muzzle" type="Node2D" parent="Player" unique_id=1844321801]
+position = Vector2(0, -15)
