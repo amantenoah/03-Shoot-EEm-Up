@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://8ycecf55304e"]
+
+[ext_resource type="Texture2D" uid="uid://begng2648kwbv" path="res://Assets/Sprites/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Destruction/PNGs/Nautolan Ship - Fighter.png" id="1_vxas0"]
+[ext_resource type="Script" uid="uid://co6q0llvgfrq1" path="res://explosion.gd" id="2_j4sxf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5xho"]
+atlas = ExtResource("1_vxas0")
+region = Rect2(0, 0, 54, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmxf7"]
+atlas = ExtResource("1_vxas0")
+region = Rect2(65, 0, 54, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l04k4"]
+atlas = ExtResource("1_vxas0")
+region = Rect2(130, 0, 54, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf70p"]
+atlas = ExtResource("1_vxas0")
+region = Rect2(195, 0, 54, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xjsk"]
+atlas = ExtResource("1_vxas0")
+region = Rect2(260, 0, 54, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjpps"]
+atlas = ExtResource("1_vxas0")
+region = Rect2(325, 0, 54, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ew515"]
+atlas = ExtResource("1_vxas0")
+region = Rect2(390, 0, 54, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cxdk"]
+atlas = ExtResource("1_vxas0")
+region = Rect2(455, 0, 54, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4lvei"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5xho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmxf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l04k4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cf70p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xjsk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjpps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ew515")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cxdk")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Explosion" type="AnimatedSprite2D"]
+rotation = 4.712389
+sprite_frames = SubResource("SpriteFrames_4lvei")
+autoplay = "default"
+frame = 7
+frame_progress = 0.24883081
+script = ExtResource("2_j4sxf")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
