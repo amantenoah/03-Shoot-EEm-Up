@@ -22,6 +22,11 @@ func _shoot():
 	var bullet = bullet_scene.instantiate()
 	get_tree().root.add_child(bullet)
 	bullet.global_position = muzzle.global_position
+	
+	var mouse_pos = get_global_mouse_position()
+	var mouse_dir = muzzle.global_position.direction_to(mouse_pos)
+	
+	bullet.move_dir = mouse_dir
 				
 func _process(delta):
 	if Input.is_action_pressed("shoot"):
