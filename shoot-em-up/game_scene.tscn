@@ -38,7 +38,7 @@ zoom = Vector2(1.8, 1.8)
 position = Vector2(59, 284)
 script = ExtResource("5_kdryc")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1759398045]
+[node name="Sprite" type="Sprite2D" parent="Player" unique_id=1759398045]
 texture = ExtResource("5_mj2jn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1308489159]
