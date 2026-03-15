@@ -4,6 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://btq1m4od34xcc" path="res://Assets/backgrounds/Foozle_2DS0015_Void_EnvironmentPack/Backgrounds/PNGs/Condesed/Starry background  - Layer 01 - Void.png" id="2_po0ka"]
 [ext_resource type="Texture2D" uid="uid://bxg758er88o6f" path="res://Assets/backgrounds/Foozle_2DS0015_Void_EnvironmentPack/Backgrounds/PNGs/Condesed/Starry background  - Layer 02 - Stars.png" id="3_mixcd"]
 [ext_resource type="Texture2D" uid="uid://d2oiuisdlb85b" path="res://Assets/backgrounds/Foozle_2DS0015_Void_EnvironmentPack/Backgrounds/PNGs/Condesed/Starry background  - Layer 03 - Stars.png" id="4_mj2jn"]
+[ext_resource type="Script" uid="uid://bdgnddmxbvgev" path="res://player.gd" id="5_kdryc"]
+[ext_resource type="Texture2D" uid="uid://caaa6elfh0eqe" path="res://Assets/Sprites/Main Ship - Base - Full health.png" id="5_mj2jn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kdryc"]
 
 [node name="Game_Scene" type="Node2D" unique_id=422600435]
 
@@ -28,3 +32,13 @@ texture = ExtResource("4_mj2jn")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1321360086]
 position = Vector2(317, 180)
 zoom = Vector2(1.8, 1.8)
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1125953295]
+position = Vector2(59, 284)
+script = ExtResource("5_kdryc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1759398045]
+texture = ExtResource("5_mj2jn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1308489159]
+shape = SubResource("CapsuleShape2D_kdryc")
