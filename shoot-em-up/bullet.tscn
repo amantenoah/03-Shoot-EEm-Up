@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://jhogu0doxddl"]
+
+[ext_resource type="Script" uid="uid://b4kuyjup8gmgo" path="res://bullet.gd" id="1_v8qja"]
+[ext_resource type="Texture2D" uid="uid://cas0b0y38s6au" path="res://Assets/Sprites/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapon Effects - Projectiles/PNGs/Nautolan - Bullet.png" id="2_t4vbm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_miq82"]
+size = Vector2(6, 12)
+
+[node name="Bullet" type="Area2D" unique_id=843675478]
+script = ExtResource("1_v8qja")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=616633219]
+position = Vector2(1, -26)
+texture = ExtResource("2_t4vbm")
+region_enabled = true
+region_rect = Rect2(0, 0, 9, 12)
+
+[node name="DestroyTimer" type="Timer" parent="." unique_id=1200134298]
+wait_time = 2.0
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1785868343]
+position = Vector2(1, -25)
+shape = SubResource("RectangleShape2D_miq82")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]
