@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://d2uub7xrm8ch6"]
+
+[ext_resource type="Script" uid="uid://cu51tck86c8yv" path="res://parallax_2d.gd" id="1_po0ka"]
+[ext_resource type="Texture2D" uid="uid://btq1m4od34xcc" path="res://Assets/backgrounds/Foozle_2DS0015_Void_EnvironmentPack/Backgrounds/PNGs/Condesed/Starry background  - Layer 01 - Void.png" id="2_po0ka"]
+[ext_resource type="Texture2D" uid="uid://bxg758er88o6f" path="res://Assets/backgrounds/Foozle_2DS0015_Void_EnvironmentPack/Backgrounds/PNGs/Condesed/Starry background  - Layer 02 - Stars.png" id="3_mixcd"]
+[ext_resource type="Texture2D" uid="uid://d2oiuisdlb85b" path="res://Assets/backgrounds/Foozle_2DS0015_Void_EnvironmentPack/Backgrounds/PNGs/Condesed/Starry background  - Layer 03 - Stars.png" id="4_mj2jn"]
+
+[node name="Game_Scene" type="Node2D" unique_id=422600435]
+
+[node name="Moving_Background" type="Parallax2D" parent="." unique_id=956148144]
+script = ExtResource("1_po0ka")
+
+[node name="Void" type="Sprite2D" parent="Moving_Background" unique_id=885652472]
+position = Vector2(2878.5002, 326.49997)
+scale = Vector2(0.9984375, 1.797222)
+texture = ExtResource("2_po0ka")
+
+[node name="Stars" type="Sprite2D" parent="Moving_Background" unique_id=502067487]
+position = Vector2(2878.5002, 326.49997)
+scale = Vector2(0.9984375, 1.797222)
+texture = ExtResource("3_mixcd")
+
+[node name="Void3" type="Sprite2D" parent="Moving_Background" unique_id=1124292244]
+position = Vector2(2878.5002, 326.49997)
+scale = Vector2(0.9984375, 1.797222)
+texture = ExtResource("4_mj2jn")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1321360086]
+position = Vector2(317, 180)
+zoom = Vector2(1.8, 1.8)
