@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://8ycecf55304e"]
 
-[ext_resource type="Texture2D" uid="uid://begng2648kwbv" path="res://Assets/Sprites/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Destruction/PNGs/Nautolan Ship - Fighter.png" id="1_vxas0"]
+[ext_resource type="Texture2D" uid="uid://begng2648kwbv" path="res://Assets/Sprites/Enemies/Nautolan/Destruction/PNGs/Nautolan Ship - Fighter.png" id="1_vxas0"]
 [ext_resource type="Script" uid="uid://co6q0llvgfrq1" path="res://Scripts/explosion.gd" id="2_j4sxf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m5xho"]
@@ -67,12 +67,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Explosion" type="AnimatedSprite2D"]
+[node name="Explosion" type="AnimatedSprite2D" unique_id=6057168]
 rotation = 4.712389
 sprite_frames = SubResource("SpriteFrames_4lvei")
 autoplay = "default"
 frame = 7
-frame_progress = 0.24883081
+frame_progress = 1.0
 script = ExtResource("2_j4sxf")
 
 [connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

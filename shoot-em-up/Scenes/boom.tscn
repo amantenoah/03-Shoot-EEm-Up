@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cngb7o8wnupna"]
+
+[ext_resource type="Texture2D" uid="uid://ukqdv3v8ib78" path="res://Assets/round_explosion/spritesheet/explosions.png" id="1_ry3b1"]
+
+[node name="Boom" type="Node2D" unique_id=792675857]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1765529816]
+texture = ExtResource("1_ry3b1")

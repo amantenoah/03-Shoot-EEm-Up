@@ -15,7 +15,6 @@ func _physics_process(delta: float) -> void:
 	move_input = Input.get_vector("left","right","up",'down')
 	velocity = move_input * SPEED
 
-
 	move_and_slide()
 
 func _shoot():
@@ -40,10 +39,10 @@ var health: int = 4
 
 # Reference your sprite (make sure the name matches your scene tree)
 
-var tex_full = preload("res://Assets/Sprites/Main Ship - Base - Full health.png")
-var tex_slight = preload("res://Assets/Sprites/Main Ship - Base - Slight damage.png")
-var tex_damaged = preload("res://Assets/Sprites/Main Ship - Base - Damaged.png")
-var tex_critical = preload("res://Assets/Sprites/Main Ship - Base - Very damaged.png")
+var tex_full = preload("res://Assets/Sprites/Player/Main Ship - Base - Full health.png")
+var tex_slight = preload("res://Assets/Sprites/Player/Main Ship - Base - Slight damage.png")
+var tex_damaged = preload("res://Assets/Sprites/Player/Main Ship - Base - Damaged.png")
+var tex_critical = preload("res://Assets/Sprites/Player/Main Ship - Base - Very damaged.png")
 
 func take_damage(amount: int):
 	health -= amount
@@ -66,8 +65,6 @@ func update_appearance():
 			sprite.texture = tex_critical
 			
 
-# TODO: This is for debugging only and testing damage
-# To test if the damage works without enemies, CTRL + Right Click
 func _input(event):
 	# Using the action name you set in the Input Map
 	if event.is_action_pressed("damage"):

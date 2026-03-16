@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://jhogu0doxddl"]
 
-[ext_resource type="Script" uid="uid://b4kuyjup8gmgo" path="res://bullet.gd" id="1_v8qja"]
-[ext_resource type="Texture2D" uid="uid://cas0b0y38s6au" path="res://Assets/Sprites/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapon Effects - Projectiles/PNGs/Nautolan - Bullet.png" id="2_t4vbm"]
+[ext_resource type="Script" uid="uid://b4kuyjup8gmgo" path="res://Scripts/bullet.gd" id="1_v8qja"]
+[ext_resource type="Texture2D" uid="uid://cas0b0y38s6au" path="res://Assets/Sprites/Enemies/Nautolan/Weapon Effects - Projectiles/PNGs/Nautolan - Bullet.png" id="2_t4vbm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_miq82"]
 size = Vector2(9, 6)
