@@ -6,9 +6,10 @@ const SPEED = 300.0
 @export var shoot_rate : float = 0.1
 var last_shoot_time: float 
 
-var bullet_scene: PackedScene = preload("res://bullet.tscn")
+var bullet_scene: PackedScene = preload("res://Scenes/bullet.tscn")
 
 @onready var muzzle = $Muzzle
+@onready var sprite = $Sprite2D
 
 func _physics_process(delta: float) -> void:
 	move_input = Input.get_vector("left","right","up",'down')
@@ -38,7 +39,6 @@ func _process(delta):
 var health: int = 4
 
 # Reference your sprite (make sure the name matches your scene tree)
-@onready var sprite = $Sprite 
 
 var tex_full = preload("res://Assets/Sprites/Main Ship - Base - Full health.png")
 var tex_slight = preload("res://Assets/Sprites/Main Ship - Base - Slight damage.png")

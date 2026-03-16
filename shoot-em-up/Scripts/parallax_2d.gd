@@ -1,6 +1,6 @@
 extends Parallax2D
 
-@export var scroll_speed = 500
+@export var scroll_speed = 200
 @export var level_length = 4450
 
 # Called when the node enters the scene tree for the first time.

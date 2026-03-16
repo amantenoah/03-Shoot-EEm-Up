@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://8ycecf55304e"]
+[gd_scene format=3 uid="uid://8ycecf55304e"]
 
 [ext_resource type="Texture2D" uid="uid://begng2648kwbv" path="res://Assets/Sprites/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Destruction/PNGs/Nautolan Ship - Fighter.png" id="1_vxas0"]
-[ext_resource type="Script" uid="uid://co6q0llvgfrq1" path="res://explosion.gd" id="2_j4sxf"]
+[ext_resource type="Script" uid="uid://co6q0llvgfrq1" path="res://Scripts/explosion.gd" id="2_j4sxf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m5xho"]
 atlas = ExtResource("1_vxas0")
