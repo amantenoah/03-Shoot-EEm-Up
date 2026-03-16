@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cm3msspwr5bv4"]
+
+[ext_resource type="PackedScene" uid="uid://dlurlyj3ssvm4" path="res://enemy.tscn" id="1_8qbs8"]
+
+[node name="Enemy Wave" type="Node2D" unique_id=2076404098]
+
+[node name="Enemy" parent="." unique_id=1622204422 instance=ExtResource("1_8qbs8")]
+position = Vector2(122, -2)
+
+[node name="Enemy2" parent="." unique_id=253523805 instance=ExtResource("1_8qbs8")]
+position = Vector2(201, 90)
+
+[node name="Enemy3" parent="." unique_id=188342310 instance=ExtResource("1_8qbs8")]
+position = Vector2(204, -62)

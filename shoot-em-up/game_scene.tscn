@@ -6,43 +6,139 @@
 [ext_resource type="Texture2D" uid="uid://d2oiuisdlb85b" path="res://Assets/backgrounds/Foozle_2DS0015_Void_EnvironmentPack/Backgrounds/PNGs/Condesed/Starry background  - Layer 03 - Stars.png" id="4_mj2jn"]
 [ext_resource type="Script" uid="uid://bdgnddmxbvgev" path="res://player.gd" id="5_kdryc"]
 [ext_resource type="Texture2D" uid="uid://caaa6elfh0eqe" path="res://Assets/Sprites/Main Ship - Base - Full health.png" id="5_mj2jn"]
+[ext_resource type="PackedScene" uid="uid://dlurlyj3ssvm4" path="res://enemy.tscn" id="7_6e45b"]
+[ext_resource type="PackedScene" uid="uid://cm3msspwr5bv4" path="res://enemy_wave.tscn" id="9_miq82"]
+[ext_resource type="Script" uid="uid://d22rbsg0ryx24" path="res://level_progress.gd" id="9_udeyl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kdryc"]
 
-[node name="Game_Scene" type="Node2D" unique_id=422600435]
+[node name="Game_Scene" type="Node2D" unique_id=1324647811]
 texture_filter = 1
 
-[node name="Moving_Background" type="Parallax2D" parent="." unique_id=956148144]
+[node name="Moving_Background" type="Parallax2D" parent="." unique_id=126400260]
 script = ExtResource("1_po0ka")
 
-[node name="Void" type="Sprite2D" parent="Moving_Background" unique_id=885652472]
+[node name="Void" type="Sprite2D" parent="Moving_Background" unique_id=207628418]
 position = Vector2(2872, 323)
 scale = Vector2(0.9984375, 1.797222)
 texture = ExtResource("2_po0ka")
 
-[node name="Stars" type="Sprite2D" parent="Moving_Background" unique_id=502067487]
+[node name="Stars" type="Sprite2D" parent="Moving_Background" unique_id=922370699]
 position = Vector2(2878.5002, 326.49997)
 scale = Vector2(0.9984375, 1.797222)
 texture = ExtResource("3_mixcd")
 
-[node name="Void3" type="Sprite2D" parent="Moving_Background" unique_id=1124292244]
+[node name="Void3" type="Sprite2D" parent="Moving_Background" unique_id=1239379175]
 position = Vector2(2878.5002, 326.49997)
 scale = Vector2(0.9984375, 1.797222)
 texture = ExtResource("4_mj2jn")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1321360086]
-position = Vector2(317, 180)
-zoom = Vector2(1.8, 1.8)
+[node name="Enemy" parent="Moving_Background" unique_id=217529773 node_paths=PackedStringArray("parallax_speed_reference") instance=ExtResource("7_6e45b")]
+position = Vector2(731, 235)
+parallax_speed_reference = NodePath("..")
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1125953295]
+[node name="Enemy2" parent="Moving_Background" unique_id=872795713 node_paths=PackedStringArray("parallax_speed_reference") instance=ExtResource("7_6e45b")]
+position = Vector2(880, 159)
+parallax_speed_reference = NodePath("..")
+
+[node name="Enemy3" parent="Moving_Background" unique_id=1907902243 node_paths=PackedStringArray("parallax_speed_reference") instance=ExtResource("7_6e45b")]
+position = Vector2(1093, 172)
+parallax_speed_reference = NodePath("..")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1549626815]
+position = Vector2(572, 323)
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=481887936]
 position = Vector2(59, 284)
+rotation = 1.5707964
 script = ExtResource("5_kdryc")
 
-[node name="Sprite" type="Sprite2D" parent="Player" unique_id=1759398045]
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1115578664]
 texture = ExtResource("5_mj2jn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1308489159]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=309810592]
 shape = SubResource("CapsuleShape2D_kdryc")
 
-[node name="Muzzle" type="Node2D" parent="Player" unique_id=1844321801]
+[node name="Muzzle" type="Node2D" parent="Player" unique_id=276955544]
 position = Vector2(0, -15)
+
+[node name="Wave Spawn" type="Node2D" parent="." unique_id=1506395789 node_paths=PackedStringArray("enemy_container", "parallax")]
+position = Vector2(2473, 37)
+script = ExtResource("9_udeyl")
+enemy_scene = ExtResource("7_6e45b")
+enemy_container = NodePath("../Enemy Wave")
+parallax = NodePath("../Moving_Background")
+
+[node name="Wave Spawn2" type="Node2D" parent="." unique_id=1400115043 node_paths=PackedStringArray("enemy_container", "parallax")]
+position = Vector2(1216, 311)
+script = ExtResource("9_udeyl")
+enemy_scene = ExtResource("7_6e45b")
+enemy_container = NodePath("../Enemy Wave")
+parallax = NodePath("../Moving_Background")
+
+[node name="Wave Spawn3" type="Node2D" parent="." unique_id=533322615 node_paths=PackedStringArray("enemy_container", "parallax")]
+position = Vector2(3133, 336)
+script = ExtResource("9_udeyl")
+enemy_scene = ExtResource("7_6e45b")
+enemy_container = NodePath("../Enemy Wave")
+parallax = NodePath("../Moving_Background")
+
+[node name="Wave Spawn4" type="Node2D" parent="." unique_id=660639497 node_paths=PackedStringArray("enemy_container", "parallax")]
+position = Vector2(3539, 192)
+script = ExtResource("9_udeyl")
+enemy_scene = ExtResource("7_6e45b")
+enemy_container = NodePath("../Enemy Wave")
+parallax = NodePath("../Moving_Background")
+
+[node name="Wave Spawn5" type="Node2D" parent="." unique_id=1830830097 node_paths=PackedStringArray("enemy_container", "parallax")]
+position = Vector2(3934, 493)
+script = ExtResource("9_udeyl")
+enemy_scene = ExtResource("7_6e45b")
+enemy_container = NodePath("../Enemy Wave")
+parallax = NodePath("../Moving_Background")
+
+[node name="Wave Spawn6" type="Node2D" parent="." unique_id=801038600 node_paths=PackedStringArray("enemy_container", "parallax")]
+position = Vector2(3937, 134)
+script = ExtResource("9_udeyl")
+enemy_scene = ExtResource("7_6e45b")
+enemy_container = NodePath("../Enemy Wave")
+parallax = NodePath("../Moving_Background")
+
+[node name="Wave Spawn7" type="Node2D" parent="." unique_id=597590052 node_paths=PackedStringArray("enemy_container", "parallax")]
+position = Vector2(4578, 314)
+script = ExtResource("9_udeyl")
+enemy_scene = ExtResource("7_6e45b")
+enemy_container = NodePath("../Enemy Wave")
+parallax = NodePath("../Moving_Background")
+
+[node name="Wave Spawn8" type="Node2D" parent="." unique_id=585013405 node_paths=PackedStringArray("enemy_container", "parallax")]
+position = Vector2(4896, 82)
+script = ExtResource("9_udeyl")
+enemy_scene = ExtResource("7_6e45b")
+enemy_container = NodePath("../Enemy Wave")
+parallax = NodePath("../Moving_Background")
+
+[node name="Wave Spawn9" type="Node2D" parent="." unique_id=119864426 node_paths=PackedStringArray("enemy_container", "parallax")]
+position = Vector2(4904, 502)
+script = ExtResource("9_udeyl")
+enemy_scene = ExtResource("7_6e45b")
+enemy_container = NodePath("../Enemy Wave")
+parallax = NodePath("../Moving_Background")
+
+[node name="EnemyContainer" type="Node2D" parent="." unique_id=76423826]
+visible = false
+position = Vector2(1336, -397)
+
+[node name="Enemy" parent="EnemyContainer" unique_id=431282402 node_paths=PackedStringArray("parallax_speed_reference") instance=ExtResource("7_6e45b")]
+position = Vector2(224, 121)
+parallax_speed_reference = NodePath("../../Moving_Background")
+
+[node name="Enemy2" parent="EnemyContainer" unique_id=441972657 node_paths=PackedStringArray("parallax_speed_reference") instance=ExtResource("7_6e45b")]
+position = Vector2(236, 230)
+parallax_speed_reference = NodePath("../../Moving_Background")
+
+[node name="Enemy3" parent="EnemyContainer" unique_id=1622204422 node_paths=PackedStringArray("parallax_speed_reference") instance=ExtResource("7_6e45b")]
+position = Vector2(247, 318)
+parallax_speed_reference = NodePath("../../Moving_Background")
+
+[node name="Enemy Wave" parent="." unique_id=2076404098 instance=ExtResource("9_miq82")]
