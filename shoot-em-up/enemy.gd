@@ -1,14 +1,14 @@
 extends Area2D
 
 var speed = 200  # Enemy's own movement speed
-var parallax_speed_reference: Parallax2D
+@export var parallax_speed_reference: Parallax2D
 
 const EXPLOSION = preload("res://explosion.tscn")
 
 func _ready():
 	add_to_group("enemy")
 	# Find the Parallax2D node (adjust path as needed)
-	parallax_speed_reference = get_node("/root/Main/Parallax2D")
+	#parallax_speed_reference = get_node("/root/Main/Parallax2D")
 
 func _physics_process(delta: float) -> void:
 	# Get current parallax scroll speed
@@ -21,9 +21,6 @@ func _physics_process(delta: float) -> void:
 	var total_movement = Vector2.LEFT * (speed + background_speed) * delta
 	translate(total_movement)
 	
-	# Remove when off screen
-	if global_position.x < -100 or global_position.x > get_viewport().size.x + 200:
-		queue_free()
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("projectile"):
@@ -39,4 +36,4 @@ func die():
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	pass # Replace with function body.
+	queue_free() 
