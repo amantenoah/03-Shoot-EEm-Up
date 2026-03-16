@@ -32,5 +32,53 @@ func _process(delta):
 	if Input.is_action_pressed("shoot"):
 		if Time.get_unix_time_from_system() - last_shoot_time > shoot_rate:
 			_shoot()
+	
+# Add these variables to your Player script
+@export var max_health: int = 4
+var health: int = 4
+
+# Reference your sprite (make sure the name matches your scene tree)
+@onready var sprite = $Sprite 
+
+var tex_full = preload("res://Assets/Sprites/Main Ship - Base - Full health.png")
+var tex_slight = preload("res://Assets/Sprites/Main Ship - Base - Slight damage.png")
+var tex_damaged = preload("res://Assets/Sprites/Main Ship - Base - Damaged.png")
+var tex_critical = preload("res://Assets/Sprites/Main Ship - Base - Very damaged.png")
+
+func take_damage(amount: int):
+	health -= amount
+	update_appearance()
+	
+	if health <= 0:
+		explode()
+
+func update_appearance():
+	# We use a match statement or if/else to change the Sprite Region
+	# You will need the exact coordinates from your Sprite Region editor
+	match health:
+		4:
+			sprite.texture = tex_full
+		3:
+			sprite.texture = tex_slight
+		2:
+			sprite.texture = tex_damaged
+		1:
+			sprite.texture = tex_critical
 			
+
+# TODO: This is for debugging only and testing damage
+# To test if the damage works without enemies, CTRL + Right Click
+func _input(event):
+	# Using the action name you set in the Input Map
+	if event.is_action_pressed("damage"):
+		print("Ctrl + Right Click detected! Reducing health...")
+		take_damage(1)
+		
+		# Optional: Print current health to the console to track the math
+		print("Health is now: ", health)
+
+func explode():
+	# Here you would instance an explosion effect or reload the scene
+	print("Player Exploded!")
+	queue_free()
 			
