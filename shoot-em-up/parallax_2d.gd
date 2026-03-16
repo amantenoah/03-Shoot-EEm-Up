@@ -11,4 +11,3 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	scroll_offset.x = max(scroll_offset.x - scroll_speed * delta, -level_length)
-	print(scroll_offset.x)

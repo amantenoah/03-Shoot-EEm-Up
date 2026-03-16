@@ -16,6 +16,7 @@ func _process(delta):
 	#print(scroll_progress)
 
 	if scroll_progress >= global_position.x:
+		print("supposed to spawn")
 		spawn_enemy()
 		triggered = true
 		set_process(false)
@@ -33,7 +34,11 @@ func _process(delta):
 
 func spawn_enemy():
 	var enemy = enemy_scene.instantiate()
-	enemy.global_position = global_position
+	
+	var spawn_x = get_viewport_rect().size.x + 100
+	var spawn_y = global_position.y
+	 
+	enemy.global_position = Vector2(spawn_x, spawn_y)
 	
 	if enemy_container:
 		enemy_container.add_child(enemy)
