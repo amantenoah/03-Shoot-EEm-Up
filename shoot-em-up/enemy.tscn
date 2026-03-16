@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://dlurlyj3ssvm4"]
 
 [ext_resource type="Script" uid="uid://nobawjtfdyu4" path="res://enemy.gd" id="1_4gyqm"]
+[ext_resource type="PackedScene" uid="uid://bu4oys74g7rmf" path="res://explode.tscn" id="2_iifgy"]
 [ext_resource type="Texture2D" uid="uid://bfy3lx1pie42m" path="res://Assets/Sprites/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Designs - Base/PNGs/Nautolan Ship - Fighter - Base.png" id="2_qi2p4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_miq82"]
 
 [node name="Enemy" type="Area2D" unique_id=1622204422]
 script = ExtResource("1_4gyqm")
+explosion_scene = ExtResource("2_iifgy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=910148590]
 shape = SubResource("RectangleShape2D_miq82")

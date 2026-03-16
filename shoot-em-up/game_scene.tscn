@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d2oiuisdlb85b" path="res://Assets/backgrounds/Foozle_2DS0015_Void_EnvironmentPack/Backgrounds/PNGs/Condesed/Starry background  - Layer 03 - Stars.png" id="4_mj2jn"]
 [ext_resource type="Script" uid="uid://bdgnddmxbvgev" path="res://player.gd" id="5_kdryc"]
 [ext_resource type="Texture2D" uid="uid://caaa6elfh0eqe" path="res://Assets/Sprites/Main Ship - Base - Full health.png" id="5_mj2jn"]
+[ext_resource type="PackedScene" uid="uid://8ycecf55304e" path="res://explosion.tscn" id="6_miq82"]
 [ext_resource type="PackedScene" uid="uid://dlurlyj3ssvm4" path="res://enemy.tscn" id="7_6e45b"]
 [ext_resource type="PackedScene" uid="uid://cm3msspwr5bv4" path="res://enemy_wave.tscn" id="9_miq82"]
 [ext_resource type="Script" uid="uid://d22rbsg0ryx24" path="res://level_progress.gd" id="9_udeyl"]
@@ -17,6 +18,7 @@ texture_filter = 1
 
 [node name="Moving_Background" type="Parallax2D" parent="." unique_id=126400260]
 script = ExtResource("1_po0ka")
+scroll_speed = 200
 
 [node name="Void" type="Sprite2D" parent="Moving_Background" unique_id=207628418]
 position = Vector2(2872, 323)
@@ -36,14 +38,17 @@ texture = ExtResource("4_mj2jn")
 [node name="Enemy" parent="Moving_Background" unique_id=217529773 node_paths=PackedStringArray("parallax_speed_reference") instance=ExtResource("7_6e45b")]
 position = Vector2(731, 235)
 parallax_speed_reference = NodePath("..")
+explosion_scene = ExtResource("6_miq82")
 
 [node name="Enemy2" parent="Moving_Background" unique_id=872795713 node_paths=PackedStringArray("parallax_speed_reference") instance=ExtResource("7_6e45b")]
 position = Vector2(880, 159)
 parallax_speed_reference = NodePath("..")
+explosion_scene = ExtResource("6_miq82")
 
 [node name="Enemy3" parent="Moving_Background" unique_id=1907902243 node_paths=PackedStringArray("parallax_speed_reference") instance=ExtResource("7_6e45b")]
 position = Vector2(1093, 172)
 parallax_speed_reference = NodePath("..")
+explosion_scene = ExtResource("6_miq82")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1549626815]
 position = Vector2(572, 323)
@@ -124,21 +129,5 @@ script = ExtResource("9_udeyl")
 enemy_scene = ExtResource("7_6e45b")
 enemy_container = NodePath("../Enemy Wave")
 parallax = NodePath("../Moving_Background")
-
-[node name="EnemyContainer" type="Node2D" parent="." unique_id=76423826]
-visible = false
-position = Vector2(1336, -397)
-
-[node name="Enemy" parent="EnemyContainer" unique_id=431282402 node_paths=PackedStringArray("parallax_speed_reference") instance=ExtResource("7_6e45b")]
-position = Vector2(224, 121)
-parallax_speed_reference = NodePath("../../Moving_Background")
-
-[node name="Enemy2" parent="EnemyContainer" unique_id=441972657 node_paths=PackedStringArray("parallax_speed_reference") instance=ExtResource("7_6e45b")]
-position = Vector2(236, 230)
-parallax_speed_reference = NodePath("../../Moving_Background")
-
-[node name="Enemy3" parent="EnemyContainer" unique_id=1622204422 node_paths=PackedStringArray("parallax_speed_reference") instance=ExtResource("7_6e45b")]
-position = Vector2(247, 318)
-parallax_speed_reference = NodePath("../../Moving_Background")
 
 [node name="Enemy Wave" parent="." unique_id=2076404098 instance=ExtResource("9_miq82")]
