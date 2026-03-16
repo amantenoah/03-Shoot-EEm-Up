@@ -1,34 +1,36 @@
 [gd_scene format=3 uid="uid://d2uub7xrm8ch6"]
 
-[ext_resource type="Texture2D" uid="uid://btq1m4od34xcc" path="res://Assets/backgrounds/Foozle_2DS0015_Void_EnvironmentPack/Backgrounds/PNGs/Condesed/Starry background  - Layer 01 - Void.png" id="1_2kgtr"]
-[ext_resource type="Script" uid="uid://cu51tck86c8yv" path="res://Scripts/parallax_2d.gd" id="1_pks1b"]
-[ext_resource type="Texture2D" uid="uid://bxg758er88o6f" path="res://Assets/backgrounds/Foozle_2DS0015_Void_EnvironmentPack/Backgrounds/PNGs/Condesed/Starry background  - Layer 02 - Stars.png" id="2_pks1b"]
-[ext_resource type="Texture2D" uid="uid://d2oiuisdlb85b" path="res://Assets/backgrounds/Foozle_2DS0015_Void_EnvironmentPack/Backgrounds/PNGs/Condesed/Starry background  - Layer 03 - Stars.png" id="3_4c48b"]
-[ext_resource type="Script" uid="uid://bdgnddmxbvgev" path="res://Scripts/player.gd" id="4_tsqg2"]
-[ext_resource type="Texture2D" uid="uid://caaa6elfh0eqe" path="res://Assets/Sprites/Player/Main Ship - Base - Full health.png" id="5_18lbr"]
+[ext_resource type="Script" uid="uid://cu51tck86c8yv" path="res://Scripts/parallax_2d.gd" id="1_rgj8m"]
+[ext_resource type="Texture2D" uid="uid://btq1m4od34xcc" path="res://Assets/backgrounds/Foozle_2DS0015_Void_EnvironmentPack/Backgrounds/PNGs/Condesed/Starry background  - Layer 01 - Void.png" id="2_2fmhe"]
+[ext_resource type="Texture2D" uid="uid://bxg758er88o6f" path="res://Assets/backgrounds/Foozle_2DS0015_Void_EnvironmentPack/Backgrounds/PNGs/Condesed/Starry background  - Layer 02 - Stars.png" id="3_7iton"]
+[ext_resource type="Texture2D" uid="uid://d2oiuisdlb85b" path="res://Assets/backgrounds/Foozle_2DS0015_Void_EnvironmentPack/Backgrounds/PNGs/Condesed/Starry background  - Layer 03 - Stars.png" id="4_ikfsv"]
+[ext_resource type="Script" uid="uid://bdgnddmxbvgev" path="res://Scripts/player.gd" id="5_5dgvu"]
+[ext_resource type="Texture2D" uid="uid://caaa6elfh0eqe" path="res://Assets/Sprites/Player/Main Ship - Base - Full health.png" id="6_uscyt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kdryc"]
+radius = 16.0
+height = 60.0
 
 [node name="Game_Scene" type="Node2D" unique_id=1324647811]
 texture_filter = 1
 
 [node name="Moving_Background" type="Parallax2D" parent="." unique_id=126400260]
-script = ExtResource("1_pks1b")
+script = ExtResource("1_rgj8m")
 
 [node name="Void" type="Sprite2D" parent="Moving_Background" unique_id=207628418]
 position = Vector2(2872, 323)
 scale = Vector2(0.9984375, 1.797222)
-texture = ExtResource("1_2kgtr")
+texture = ExtResource("2_2fmhe")
 
 [node name="Stars" type="Sprite2D" parent="Moving_Background" unique_id=922370699]
 position = Vector2(2878.5002, 326.49997)
 scale = Vector2(0.9984375, 1.797222)
-texture = ExtResource("2_pks1b")
+texture = ExtResource("3_7iton")
 
 [node name="Void3" type="Sprite2D" parent="Moving_Background" unique_id=1239379175]
 position = Vector2(2878.5002, 326.49997)
 scale = Vector2(0.9984375, 1.797222)
-texture = ExtResource("3_4c48b")
+texture = ExtResource("4_ikfsv")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1549626815]
 position = Vector2(572, 323)
@@ -36,10 +38,12 @@ position = Vector2(572, 323)
 [node name="Player" type="CharacterBody2D" parent="." unique_id=481887936]
 position = Vector2(59, 284)
 rotation = 1.5707964
-script = ExtResource("4_tsqg2")
+script = ExtResource("5_5dgvu")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1115578664]
-texture = ExtResource("5_18lbr")
+position = Vector2(0.74638367, -0.4511261)
+scale = Vector2(1.5937366, 1.5371901)
+texture = ExtResource("6_uscyt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=309810592]
 shape = SubResource("CapsuleShape2D_kdryc")

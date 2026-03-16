@@ -10,6 +10,7 @@ var bullet_scene: PackedScene = preload("res://Scenes/bullet.tscn")
 
 @onready var muzzle = $Muzzle
 @onready var sprite = $Sprite2D
+const Explosion = preload("res://Scenes/boom.tscn")
 
 func _physics_process(delta: float) -> void:
 	move_input = Input.get_vector("left","right","up",'down')
@@ -45,8 +46,13 @@ var tex_damaged = preload("res://Assets/Sprites/Player/Main Ship - Base - Damage
 var tex_critical = preload("res://Assets/Sprites/Player/Main Ship - Base - Very damaged.png")
 
 func take_damage(amount: int):
+	
 	health -= amount
 	update_appearance()
+	
+	var explosion = Explosion.instantiate()
+	explosion.position = position + Vector2(randf_range(-5,5), randf_range(-5,5))
+	get_parent().add_child(explosion)
 	
 	if health <= 0:
 		explode()
