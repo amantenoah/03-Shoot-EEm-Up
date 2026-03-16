@@ -10,7 +10,7 @@ func _ready():
 	# Find the Parallax2D node (adjust path as needed)
 	parallax_speed_reference = get_node("/root/Main/Parallax2D")
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	# Get current parallax scroll speed
 	var background_speed = 0
 	if parallax_speed_reference:
@@ -36,3 +36,7 @@ func die():
 	explosion.global_position = global_position
 	get_parent().add_child(explosion)
 	queue_free()
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	pass # Replace with function body.
