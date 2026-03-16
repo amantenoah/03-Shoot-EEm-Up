@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cm3msspwr5bv4"]
 
-[ext_resource type="PackedScene" uid="uid://dlurlyj3ssvm4" path="res://Scenes/enemy.tscn" id="1_8qbs8"]
+[ext_resource type="PackedScene" uid="uid://dlurlyj3ssvm4" path="res://Scenes/enemy_a.tscn" id="1_8qbs8"]
 
 [node name="Enemy Wave" type="Node2D" unique_id=2076404098]
 

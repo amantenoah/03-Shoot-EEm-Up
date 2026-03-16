@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d2oiuisdlb85b" path="res://Assets/backgrounds/Foozle_2DS0015_Void_EnvironmentPack/Backgrounds/PNGs/Condesed/Starry background  - Layer 03 - Stars.png" id="4_ikfsv"]
 [ext_resource type="Script" uid="uid://bdgnddmxbvgev" path="res://Scripts/player.gd" id="5_5dgvu"]
 [ext_resource type="Texture2D" uid="uid://caaa6elfh0eqe" path="res://Assets/Sprites/Player/Main Ship - Base - Full health.png" id="6_uscyt"]
+[ext_resource type="PackedScene" uid="uid://dlurlyj3ssvm4" path="res://Scenes/enemy_a.tscn" id="7_2fmhe"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kdryc"]
 radius = 16.0
@@ -35,7 +36,7 @@ texture = ExtResource("4_ikfsv")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1549626815]
 position = Vector2(572, 323)
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=481887936]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=481887936 groups=["player"]]
 position = Vector2(59, 284)
 rotation = 1.5707964
 script = ExtResource("5_5dgvu")
@@ -45,11 +46,15 @@ position = Vector2(0.74638367, -0.4511261)
 scale = Vector2(1.5937366, 1.5371901)
 texture = ExtResource("6_uscyt")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=309810592]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=309810592 groups=["player"]]
 shape = SubResource("CapsuleShape2D_kdryc")
 
 [node name="Muzzle" type="Node2D" parent="Player" unique_id=276955544]
-position = Vector2(0, -15)
+position = Vector2(2, -30)
 
 [node name="Wave Spawn" type="Node2D" parent="." unique_id=1506395789]
 position = Vector2(1360, 316)
+
+[node name="Test" parent="." unique_id=1622204422 node_paths=PackedStringArray("parallax_speed_reference") instance=ExtResource("7_2fmhe")]
+position = Vector2(983, 303)
+parallax_speed_reference = NodePath("../Moving_Background")
