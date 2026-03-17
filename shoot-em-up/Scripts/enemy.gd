@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed = 100  # Enemy's own movement speed
+var speed = 50 
 @export var parallax_speed_reference: Parallax2D
 @export var target: CharacterBody2D
 var bullet_scene: PackedScene = preload("res://Scenes/enemy_bullet_a.tscn")
@@ -58,11 +58,12 @@ func _on_body_entered(body: Node2D) -> void:
 
 func shoot():
 	var bullet = bullet_scene.instantiate()
-	get_tree().root.add_child(bullet)
 	bullet.global_position = muzzle.global_position
 	
 	var player = get_tree().get_first_node_in_group("player")
+
 	var target_pos = player.global_position
 	var target_dir = muzzle.global_position.direction_to(target_pos)
 	
 	bullet.move_dir = target_dir
+	get_tree().root.add_child(bullet)
