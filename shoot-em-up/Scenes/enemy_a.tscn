@@ -90,6 +90,9 @@ rotation = -1.5707964
 sprite_frames = SubResource("SpriteFrames_3ybsy")
 animation = &"explode"
 
+[node name="Muzzle" type="Node2D" parent="." unique_id=1398467352]
+position = Vector2(-14, 0)
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -2,12 +2,19 @@ extends Area2D
 
 var speed = 100  # Enemy's own movement speed
 @export var parallax_speed_reference: Parallax2D
+@export var target: CharacterBody2D
+var bullet_scene: PackedScene = preload("res://Scenes/enemy_bullet_a.tscn")
 const Explosion = preload("res://Scenes/boom.tscn")
 var can_damage = true
 var hp = 2
+@onready var muzzle = $Muzzle
 
 func _ready():
 	add_to_group("enemy")
+	#await get_tree().create_timer(randf_range(0.5, 2)).timeout
+	await get_tree().create_timer(0.5).timeout
+	if is_inside_tree():
+		shoot()
 
 func _physics_process(delta: float) -> void:
 	var background_speed = 0
@@ -48,3 +55,14 @@ func _on_body_entered(body: Node2D) -> void:
 		can_damage = false
 		await get_tree().create_timer(0.5).timeout
 		can_damage = true
+
+func shoot():
+	var bullet = bullet_scene.instantiate()
+	get_tree().root.add_child(bullet)
+	bullet.global_position = muzzle.global_position
+	
+	var player = get_tree().get_first_node_in_group("player")
+	var target_pos = player.global_position
+	var target_dir = muzzle.global_position.direction_to(target_pos)
+	
+	bullet.move_dir = target_dir

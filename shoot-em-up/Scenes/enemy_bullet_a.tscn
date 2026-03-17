@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://bcc5woarr433t"]
+
+[ext_resource type="Script" uid="uid://krrcvbw1hsdv" path="res://Scripts/enemy_bullet_a.gd" id="1_vxheb"]
+[ext_resource type="Texture2D" uid="uid://bem04r1xavro6" path="res://Assets/Sprites/Enemies/Nautolan/Weapon Effects - Projectiles/PNGs/Nautolan - Spinning Bullet.png" id="2_g0j1l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mds4y"]
+atlas = ExtResource("2_g0j1l")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_escmh"]
+atlas = ExtResource("2_g0j1l")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqaib"]
+atlas = ExtResource("2_g0j1l")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xs828"]
+atlas = ExtResource("2_g0j1l")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpquj"]
+atlas = ExtResource("2_g0j1l")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2elc"]
+atlas = ExtResource("2_g0j1l")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phta2"]
+atlas = ExtResource("2_g0j1l")
+region = Rect2(48, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2k7v"]
+atlas = ExtResource("2_g0j1l")
+region = Rect2(56, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f5pxt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mds4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_escmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqaib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xs828")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpquj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2elc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phta2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2k7v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_thk2o"]
+radius = 5.0
+
+[node name="enemy_bullet_a" type="Area2D" unique_id=30612979]
+script = ExtResource("1_vxheb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=826153227]
+sprite_frames = SubResource("SpriteFrames_f5pxt")
+
+[node name="DestroyTimer" type="Timer" parent="." unique_id=1211787187]
+wait_time = 4.0
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1500526368]
+shape = SubResource("CircleShape2D_thk2o")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
