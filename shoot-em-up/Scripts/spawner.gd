@@ -1,22 +1,40 @@
 extends Node2D
 
-@onready var enemy = preload("res://enemy.tscn")
-@onready var timer = $Timer
-@onready var enemy_container = get_node("/root/Main/Parallax2D/EnemyContainer")
+@export var enemy_scene: PackedScene
+@export var enemy_container: Node
+@export var parallax: Node
 
-func _ready():
-	if timer:
-		timer.start()
-	
-	if not enemy_container:
-		print("Warning: EnemyContainer not found, using parent instead")
+var triggered = false
 
-func _on_timer_timeout() -> void:
-	var ene = enemy.instantiate()
-	ene.position = position
+func _process(delta):
+
+	if triggered:
+		return
 	
-	# Add to enemy container if it exists, otherwise to parent
+	var camera = get_viewport().get_camera_2d()
+	var scroll_progress = -parallax.scroll_offset.x
+	#print(scroll_progress)
+
+	if scroll_progress >= global_position.x:
+		print("supposed to spawn")
+		spawn_enemy()
+		triggered = true
+		set_process(false)
+		
+	if not camera:
+		print("No Camera")
+		return
+
+
+func spawn_enemy():
+	var enemy = enemy_scene.instantiate()
+	
+	var spawn_x = get_viewport_rect().size.x + 100
+	var spawn_y = global_position.y
+	 
+	enemy.global_position = Vector2(spawn_x, spawn_y)
+	
 	if enemy_container:
-		enemy_container.add_child(ene)
+		enemy_container.add_child(enemy)
 	else:
-		get_parent().add_child(ene)
+		get_tree().current_scene.add_child(enemy)

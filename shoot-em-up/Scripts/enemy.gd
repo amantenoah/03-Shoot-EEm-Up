@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed = 50 
+var speed = 100 
 @export var parallax_speed_reference: Parallax2D
 @export var target: CharacterBody2D
 var bullet_scene: PackedScene = preload("res://Scenes/enemy_bullet_a.tscn")
@@ -11,8 +11,7 @@ var hp = 2
 
 func _ready():
 	add_to_group("enemy")
-	#await get_tree().create_timer(randf_range(0.5, 2)).timeout
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(randf_range(0.5, 2)).timeout
 	if is_inside_tree():
 		shoot()
 
@@ -42,8 +41,8 @@ func die():
 	$AnimatedSprite2D.play("explode")
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	print("exited")
 	queue_free()
-
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	queue_free()

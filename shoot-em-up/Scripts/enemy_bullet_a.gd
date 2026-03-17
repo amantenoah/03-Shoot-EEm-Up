@@ -12,7 +12,6 @@ func _process(delta: float) -> void:
 	translate(move_dir * speed * delta)	
 	
 	rotation = move_dir.angle()
-	print(move_dir)
 
 # Called when the node enters the scene tree for the first time.
 func _on_body_entered(body):

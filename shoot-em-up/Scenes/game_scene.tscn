@@ -6,7 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://d2oiuisdlb85b" path="res://Assets/backgrounds/Foozle_2DS0015_Void_EnvironmentPack/Backgrounds/PNGs/Condesed/Starry background  - Layer 03 - Stars.png" id="4_ikfsv"]
 [ext_resource type="Script" uid="uid://bdgnddmxbvgev" path="res://Scripts/player.gd" id="5_5dgvu"]
 [ext_resource type="Texture2D" uid="uid://caaa6elfh0eqe" path="res://Assets/Sprites/Player/Main Ship - Base - Full health.png" id="6_uscyt"]
-[ext_resource type="PackedScene" uid="uid://dlurlyj3ssvm4" path="res://Scenes/enemy_a.tscn" id="7_2fmhe"]
+[ext_resource type="Script" uid="uid://d22rbsg0ryx24" path="res://Scripts/spawner.gd" id="7_ikfsv"]
+[ext_resource type="PackedScene" uid="uid://cm3msspwr5bv4" path="res://Scenes/enemy_wave.tscn" id="8_5dgvu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kdryc"]
 radius = 16.0
@@ -52,9 +53,13 @@ shape = SubResource("CapsuleShape2D_kdryc")
 [node name="Muzzle" type="Node2D" parent="Player" unique_id=276955544]
 position = Vector2(2, -30)
 
-[node name="Wave Spawn" type="Node2D" parent="." unique_id=1506395789]
-position = Vector2(1360, 316)
+[node name="Wave Spawn" type="Node2D" parent="." unique_id=1506395789 node_paths=PackedStringArray("enemy_container", "parallax")]
+visible = false
+position = Vector2(823, 321)
+script = ExtResource("7_ikfsv")
+enemy_scene = ExtResource("8_5dgvu")
+enemy_container = NodePath("../Enemy Wave")
+parallax = NodePath("../Moving_Background")
 
-[node name="Test" parent="." unique_id=1622204422 node_paths=PackedStringArray("parallax_speed_reference") instance=ExtResource("7_2fmhe")]
-position = Vector2(983, 303)
-parallax_speed_reference = NodePath("../Moving_Background")
+[node name="Enemy Wave" parent="." unique_id=2076404098 instance=ExtResource("8_5dgvu")]
+position = Vector2(1263, 337)
