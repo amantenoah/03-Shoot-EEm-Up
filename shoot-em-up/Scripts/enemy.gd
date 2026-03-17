@@ -19,6 +19,8 @@ func _physics_process(delta: float) -> void:
 	var background_speed = 0
 	if parallax_speed_reference:
 		background_speed = parallax_speed_reference.scroll_speed
+	else:
+		background_speed = 100
 	
 	translate(Vector2.LEFT * (speed + background_speed) * delta)
 	

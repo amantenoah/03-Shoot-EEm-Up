@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://ch5hufpuupcni"]
+
+[ext_resource type="Script" uid="uid://cu51tck86c8yv" path="res://Scripts/parallax_2d.gd" id="1_xgxeb"]
+[ext_resource type="Texture2D" uid="uid://btq1m4od34xcc" path="res://Assets/backgrounds/Foozle_2DS0015_Void_EnvironmentPack/Backgrounds/PNGs/Condesed/Starry background  - Layer 01 - Void.png" id="2_ltlj5"]
+[ext_resource type="Texture2D" uid="uid://bxg758er88o6f" path="res://Assets/backgrounds/Foozle_2DS0015_Void_EnvironmentPack/Backgrounds/PNGs/Condesed/Starry background  - Layer 02 - Stars.png" id="3_rymcx"]
+[ext_resource type="Texture2D" uid="uid://d2oiuisdlb85b" path="res://Assets/backgrounds/Foozle_2DS0015_Void_EnvironmentPack/Backgrounds/PNGs/Condesed/Starry background  - Layer 03 - Stars.png" id="4_42s4r"]
+
+[node name="Moving_Background" type="Parallax2D" unique_id=77620474]
+script = ExtResource("1_xgxeb")
+scroll_speed = 100
+
+[node name="Void" type="Sprite2D" parent="." unique_id=400119609]
+position = Vector2(2872, 323)
+scale = Vector2(0.9984375, 1.797222)
+texture = ExtResource("2_ltlj5")
+
+[node name="Stars" type="Sprite2D" parent="." unique_id=1489487704]
+position = Vector2(2878.5002, 326.49997)
+scale = Vector2(0.9984375, 1.797222)
+texture = ExtResource("3_rymcx")
+
+[node name="Void3" type="Sprite2D" parent="." unique_id=1704585931]
+position = Vector2(2878.5002, 326.49997)
+scale = Vector2(0.9984375, 1.797222)
+texture = ExtResource("4_42s4r")

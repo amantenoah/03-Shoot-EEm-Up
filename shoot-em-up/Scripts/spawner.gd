@@ -6,6 +6,9 @@ extends Node2D
 
 var triggered = false
 
+#func _ready() -> void:
+	#spawn_enemy()
+
 func _process(delta):
 
 	if triggered:
